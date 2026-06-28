@@ -3590,3 +3590,68 @@ button,
   transform: none !important;
   filter: none !important;
 }
+/* FIX CELULAR HERO */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+@media (max-width: 700px) {
+  .hero-premium {
+    width: 100%;
+    overflow: hidden;
+    padding: 110px 0 70px;
+  }
+
+  .hero-premium-container {
+    width: min(100% - 1.4rem, 1180px);
+    margin-inline: auto;
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .hero-premium-content {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .hero-premium-title {
+    font-size: clamp(3rem, 17vw, 4.6rem);
+    line-height: .9;
+    word-break: normal;
+  }
+
+  .hero-premium-title span {
+    display: block;
+  }
+
+  .hero-premium-subtitle {
+    max-width: 100%;
+    font-size: 1rem;
+    line-height: 1.7;
+    padding-inline: .4rem;
+  }
+
+  .hero-premium-buttons {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .hero-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-premium-visual {
+    display: none;
+  }
+
+  .hero-premium-stats {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+}

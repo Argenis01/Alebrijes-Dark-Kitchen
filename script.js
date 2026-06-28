@@ -159,7 +159,26 @@ function renderMenu() {
 
   menuGrid.innerHTML = items.map(createProductCard).join("");
 }
+menuTabs.addEventListener("click", (e) => {
+  const btn = e.target.closest(".tab-btn");
+  if (!btn) return;
 
+  document.querySelectorAll(".tab-btn").forEach((tab) => {
+    tab.classList.remove("active");
+    tab.setAttribute("aria-selected", "false");
+  });
+
+  btn.classList.add("active");
+  btn.setAttribute("aria-selected", "true");
+
+  activeCategory = btn.dataset.cat;
+  renderMenu();
+});
+
+searchMenu.addEventListener("input", (e) => {
+  searchText = e.target.value;
+  renderMenu();
+});
 function toggleFavorito(id) {
   if (favoritos.includes(id)) {
     favoritos = favoritos.filter((fav) => fav !== id);
@@ -169,7 +188,7 @@ function toggleFavorito(id) {
 
   localStorage.setItem("favoritosAlebrijes", JSON.stringify(favoritos));
   renderMenu();
-actualizarContador();
+
 }
 
 let carrito = JSON.parse(localStorage.getItem("carritoAlebrijes")) || [];
@@ -685,3 +704,6 @@ function confirmarVaciarPremium() {
   mostrarCarrito();
   cerrarConfirmPremium();
 }
+
+renderMenu();
+actualizarContador();
